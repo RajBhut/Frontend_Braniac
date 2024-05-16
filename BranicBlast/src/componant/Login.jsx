@@ -23,7 +23,7 @@ const Login = () => {
     event.preventDefault();
     setErrors({}); // Clear previous errors
     console.log(formData.password , formData.email )
-    if(confirmPassword !== formData.password) {
+    if(confirmPassword != formData.password) {
     console.log("Wrong match")
       setConfirmPasswordMatch(false);
       return;
