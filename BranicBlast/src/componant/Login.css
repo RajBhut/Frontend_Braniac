@@ -1,0 +1,29 @@
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #4794ec;
+  display: flex;
+  flex-direction: column;
+  border-radius: 13px;
+  backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(105, 43, 177, 0.5);
+}
+.auth-form h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+input
+{
+    font-size: larger;
+  width: 80%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #ccc;
+  margin: 15px;
+}
