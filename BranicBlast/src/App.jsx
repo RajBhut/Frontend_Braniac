@@ -7,7 +7,7 @@ import React from 'react';
 
 import Login from './componant/Login'
 import DashBord from './componant/DashBord';
-import Quiz from './componant/Quiz';
+
 import { BrowserRouter } from 'react-router-dom';
 
 

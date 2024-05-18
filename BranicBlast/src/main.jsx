@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import PathRouts from './componant/PathRouts.jsx'
 import Create from './componant/Create.jsx'
 import Join from './componant/Join.jsx'
-import Quiz from './componant/Quiz.jsx'
+
 import Login from './componant/Login.jsx'
 import Quize from './componant/Quize.jsx'
 import DashBord from './componant/DashBord.jsx'

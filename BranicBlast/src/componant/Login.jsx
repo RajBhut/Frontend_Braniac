@@ -108,7 +108,9 @@ const Login = () => {
 //       {errors.message && <p className="error">{errors.message}</p>}
 
 return<>
- <button onClick={() => loginWithRedirect()}>Log In</button>
+{
+  !isAuthenticated &&
+ <button onClick={() => loginWithRedirect()}>Log In</button>}
  {(isAuthenticated) &&
  <Link to={'/deshbord'}> <button>enter</button></Link>
  }

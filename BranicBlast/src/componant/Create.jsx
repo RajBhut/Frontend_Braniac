@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Create = () => {
+  const [isemptyquestion , SetisEmpty] = useState(false);
     const [questions, setQuestions] = useState([{question:'',options:[]}]);
     
     const [isSubmited , setisSubmited] = useState(false);
@@ -45,11 +46,12 @@ const Create = () => {
           };
 
           try {
-            if(!(quizData.questions.length ==1 && quizData.questions.question === ''))
-            { const response = await axios.post('https://brainac-blast-backend.vercel.app/quizzes', quizData);
-            setisSubmited(true);
+             const response = await axios.post('https://brainac-blast-backend.vercel.app/quizzes', quizData);
+            if(response.status === 201){
             setQuestions([{question:'',options:[]}]);
             }
+if(response.status == 400)
+  {SetisEmpty(true)}
 
             // ...
           } catch (error) {
@@ -129,7 +131,7 @@ const Create = () => {
             <button onClick={handleAddQuestion}>Add Question</button>
             <button onClick={handleSubmit}>Submit Quiz</button>
             
-{isSubmited ? <Link to="/deshbord"> <button>View Quizzes</button></Link> : null}
+{isSubmited ? <><Link to="/deshbord"> <button>View Quizzes</button></Link> <br /><center><h3>{isemptyquestion?"Fill data": ""}</h3></center> </>: null}
         </div>
     );
 };
