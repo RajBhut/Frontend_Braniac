@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Create = () => {
     const [questions, setQuestions] = useState([{question:'',options:[]}]);
     
+    const [isSubmited , setisSubmited] = useState(false);
 
     const handleAddQuestion = () => {
         setQuestions([...questions, { question: '', options: [] }]);
@@ -44,6 +46,9 @@ const Create = () => {
 
           try {
             const response = await axios.post('https://brainac-blast-backend.vercel.app/quizzes', quizData);
+            setisSubmited(true);
+            setQuestions([{question:'',options:[]}]);
+
             // ...
           } catch (error) {
             // ...
@@ -122,7 +127,7 @@ const Create = () => {
             <button onClick={handleAddQuestion}>Add Question</button>
             <button onClick={handleSubmit}>Submit Quiz</button>
             
-
+{isSubmited ? <Link to="/deshbord">View Quizzes</Link> : null};
         </div>
     );
 };
