@@ -33,7 +33,7 @@ setQuestions(res.data);
 
     const checkAns = (e,ans) => {
         if(lock == false){
-            if (question.answer==ans){
+            if (question.ans==ans){
                 e.target.classList.add("correct");
                 console.log("correct");
                 setLock(true);
