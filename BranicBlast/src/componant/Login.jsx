@@ -106,13 +106,17 @@ const Login = () => {
 //         <span onClick={handleModeChange}> {mode === 'login' ? 'Sign Up' : 'Login'}</span>
 //       </p>
 //       {errors.message && <p className="error">{errors.message}</p>}
+
+return<>
+ <button onClick={() => loginWithRedirect()}>Log In</button>
  {(isAuthenticated) &&
  <Link to={'/deshbord'}> <button>enter</button></Link>
  }
+</>
 
-<button onClick={() => loginWithRedirect()}>Log In</button>
 //</div>
 //  );
+
 };
 
 export default Login;
