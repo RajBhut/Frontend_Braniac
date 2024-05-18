@@ -131,7 +131,8 @@ if(response.status == 400)
             <button onClick={handleAddQuestion}>Add Question</button>
             <button onClick={handleSubmit}>Submit Quiz</button>
             
-{isSubmited ? <><Link to="/deshbord"> <button>View Quizzes</button></Link> <br /><center><h3>{isemptyquestion?"Fill data": ""}</h3></center> </>: null}
+{isSubmited ? <><Link to="/deshbord"> <button>View Quizzes</button></Link> <br /><center><h3>{}</h3></center> </>: null}
+{isemptyquestion ? <><h3>Fill all data</h3> </>: null}
         </div>
     );
 };
