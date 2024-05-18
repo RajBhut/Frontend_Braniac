@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import './Quiz.css'
 
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Quize = ({id}) => {
     const [questions, setQuestions] = useState([{question:'',opt1:'',opt2:'',opt3:'',opt4:'',ans:''}]); 
@@ -90,7 +91,7 @@ setQuestions(res.data);
         <div className="index">{index+1} of {questions.length} questions</div></>}
         {result?<>
             <h2>You Scored {score} out of {questions.length}</h2>
-        <button onClick={reset}>Reset</button>
+        <button onClick={reset}>Reset</button> <Link to={"/deshbord"}> <button>Go To Deshbord</button> </Link>
        </>:<></>}
        
         </div>
