@@ -45,9 +45,11 @@ const Create = () => {
           };
 
           try {
-            const response = await axios.post('https://brainac-blast-backend.vercel.app/quizzes', quizData);
+            if(!(quizData.questions.length ==1 && quizData.questions.question === ''))
+            { const response = await axios.post('https://brainac-blast-backend.vercel.app/quizzes', quizData);
             setisSubmited(true);
             setQuestions([{question:'',options:[]}]);
+            }
 
             // ...
           } catch (error) {
@@ -127,7 +129,7 @@ const Create = () => {
             <button onClick={handleAddQuestion}>Add Question</button>
             <button onClick={handleSubmit}>Submit Quiz</button>
             
-{isSubmited ? <Link to="/deshbord">View Quizzes</Link> : null};
+{isSubmited ? <Link to="/deshbord"> <button>View Quizzes</button></Link> : null}
         </div>
     );
 };
