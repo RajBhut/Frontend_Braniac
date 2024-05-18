@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Create = () => {
-  const [isemptyquestion , SetisEmpty] = useState(false);
+
     const [questions, setQuestions] = useState([{question:'',options:[]}]);
     
     const [isSubmited , setisSubmited] = useState(false);
@@ -50,8 +50,7 @@ const Create = () => {
             if(response.status === 201){
             setQuestions([{question:'',options:[]}]);
             }
-if(response.status == 400)
-  {SetisEmpty(true)}
+
 
             // ...
           } catch (error) {
@@ -131,8 +130,8 @@ if(response.status == 400)
             <button onClick={handleAddQuestion}>Add Question</button>
             <button onClick={handleSubmit}>Submit Quiz</button>
             
-{isSubmited ? <><Link to="/deshbord"> <button>View Quizzes</button></Link> <br /><center><h3>{}</h3></center> </>: null}
-{isemptyquestion ? <><h3>Fill all data</h3> </>: null}
+{isSubmited ? <><Link to="/deshbord"> <button>View Quizzes</button></Link>  </>: null};
+
         </div>
     );
 };
