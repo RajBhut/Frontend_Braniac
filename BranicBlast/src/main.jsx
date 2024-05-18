@@ -12,14 +12,21 @@ import Quize from './componant/Quize.jsx'
 import DashBord from './componant/DashBord.jsx'
 
 
-
+import { Auth0Provider } from '@auth0/auth0-react';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   
   <React.StrictMode>
- 
+ <Auth0Provider
+    domain="dev-3eyrwofo7awqke6w.us.auth0.com"
+    clientId="2vx9ey1YUVpVF2gBNj0Rg3ec7QSQOGAv"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
   <PathRouts/>
-  </React.StrictMode>,
+  </Auth0Provider>
+  </React.StrictMode>
 )

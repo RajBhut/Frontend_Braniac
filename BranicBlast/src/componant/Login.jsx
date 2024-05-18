@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 const Login = () => {
+  const { loginWithRedirect , isAuthenticated , user } = useAuth0();
   const [confirmPasswordMatch, setConfirmPasswordMatch] = useState(true); // Add this line
   const [confirmPassword, setConfirmPassword] = useState(''); // Add this line
   const [mode, setMode] = useState('login'); // Initial mode: login
@@ -104,10 +106,11 @@ const Login = () => {
         <span onClick={handleModeChange}> {mode === 'login' ? 'Sign Up' : 'Login'}</span>
       </p>
       {errors.message && <p className="error">{errors.message}</p>}
-{isAthenticate &&
+{(isAthenticate || isAuthenticated) &&
 <Link to={'/deshbord'}>enter</Link>
 }
 
+<button onClick={() => loginWithRedirect()}>Log In</button>
     </div>
   );
 };
