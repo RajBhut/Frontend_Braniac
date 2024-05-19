@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Create = () => {
+
+
+
+useEffect(() => { 
+  setisquestionempty(false);
+} , []);
+
 
     const [questions, setQuestions] = useState([{question:'',options:[]}]);
     
@@ -51,6 +58,7 @@ const Create = () => {
             if(response.status === 201){
             setQuestions([{question:'',options:[]}]);
            setisSubmited(true);
+           setisquestionempty(false);
             }
           
 
