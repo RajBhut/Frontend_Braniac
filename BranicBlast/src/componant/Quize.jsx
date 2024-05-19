@@ -76,13 +76,16 @@ setQuestion(res.data[0]);
         setResult(false);
     }
 
-  return (
+  return (<>
     <div className='container'>
            <Link to={"/deshbord"}> <button>Go To Deshbord</button> </Link>
-        <h1>Quiz App</h1>
+        <h1 >
+
+
+        Quiz App</h1>
         <hr />
         {result?<></>:<>
-        <h2>{index+1}.{questions[index].question}</h2>
+        <h2 className='que'>{index+1 +"." +  "     "}   {questions[index].question}</h2>
         <ul>
             <li ref={Option1}onClick={(e)=>{checkAns(e,1)}}>{question.opt1}</li>
             <li ref={Option2}onClick={(e)=>{checkAns(e,2)}}>{question.opt2}</li>
@@ -97,6 +100,7 @@ setQuestion(res.data[0]);
        </>:<></>}
        
         </div>
+        </>
   )
 }
 
