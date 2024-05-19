@@ -7,6 +7,7 @@ const Create = () => {
     const [questions, setQuestions] = useState([{question:'',options:[]}]);
     
     const [isSubmited , setisSubmited] = useState(false);
+    const [isquestionempty , setisquestionempty] = useState(false);
 
     const handleAddQuestion = () => {
         setQuestions([...questions, { question: '', options: [] }]);
@@ -49,6 +50,11 @@ const Create = () => {
              const response = await axios.post('https://brainac-blast-backend.vercel.app/quizzes', quizData);
             if(response.status === 201){
             setQuestions([{question:'',options:[]}]);
+           setisSubmited(true);
+            }
+            else
+            {
+setisquestionempty(true);
             }
 
 
@@ -131,6 +137,9 @@ const Create = () => {
             <button onClick={handleSubmit}>Submit Quiz</button>
             
 {isSubmited ? <><Link to="/deshbord"> <button>View Quizzes</button></Link>  </>: null};
+{isquestionempty ? <p style={  
+  {color: 'red',fontSize: '20px',fontWeight: 'bold',textAlign: 'center'}
+}>Question or Answer is empty</p> : null}
 
         </div>
     );
