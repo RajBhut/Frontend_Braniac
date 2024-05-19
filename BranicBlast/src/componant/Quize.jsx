@@ -11,6 +11,7 @@ const Quize = ({id}) => {
             try{
         let res =    await  axios.get(`https://brainac-blast-backend.vercel.app/api/${id}`)
 setQuestions(res.data);
+setQuestion(res.data[0]);
             }
             catch(error){
                 console.error("Error fetching data:",error);

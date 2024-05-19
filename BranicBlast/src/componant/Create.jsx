@@ -52,15 +52,13 @@ const Create = () => {
             setQuestions([{question:'',options:[]}]);
            setisSubmited(true);
             }
-            else
-            {
-setisquestionempty(true);
-            }
-
+          
 
             // ...
           } catch (error) {
-            // ...
+            if(error.response.status === 400){  
+                setisquestionempty(true);
+            }
           }
 
         console.log('Submitted Quiz:', questions); // Replace with API call or data processing
