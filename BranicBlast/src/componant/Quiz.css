@@ -18,7 +18,7 @@
  text-shadow: #5e5858 1px 2px;
  color: #9dd1d3;
  scale:1.5;
-    
+    user-select: none;
 }
 .container hr{
     height: 2px;
@@ -62,6 +62,7 @@ div.container h2.que {
     font-size: 20px;
     cursor: pointer;
     user-select: none;
+    
 }
 .container ul li:hover
 {
