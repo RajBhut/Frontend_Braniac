@@ -18,6 +18,7 @@ setQuestion(res.data[0]);
             }
         }
         fetchData();
+
     },[id]);
 
     let [index,setIndex] = useState(0);
@@ -77,7 +78,7 @@ setQuestion(res.data[0]);
 
   return (
     <div className='container'>
-          
+           <Link to={"/deshbord"}> <button>Go To Deshbord</button> </Link>
         <h1>Quiz App</h1>
         <hr />
         {result?<></>:<>
