@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import './Create.css'
 const Create = () => {
 
 
@@ -79,7 +79,7 @@ useEffect(() => {
             {questions.map((question, index) => (
     <div key={index} className="question">
     <label htmlFor={`question-${index}`}>Question {index + 1}</label>
-    <input
+    <input className='question-input'
         type="text"
         id={`question-${index}`}
         value={question.question}
