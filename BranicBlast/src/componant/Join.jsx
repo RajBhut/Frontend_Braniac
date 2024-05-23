@@ -2,10 +2,10 @@ import axios, { Axios } from 'axios';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import dotenv from 'dotenv';
+
 import { useEffect } from 'react';
 export default function Join() {
-  dotenv.config();
+  
   const [code, setCode] = useState();
 const [encode , setencode] = useState(); 
   const [error, setError] = useState(null);
