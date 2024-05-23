@@ -12,7 +12,9 @@ const [code , setcode] = useState();
  
  const [username , setusername] = useState();
  useEffect(() => { 
-  setusername(user.name);
+  if (user) {
+    setusername(user.name);
+}
   const fetchData = async () => {
     try {
         const response = await axios.get('https://brainac-blast-backend.vercel.app/quizzes');
@@ -22,7 +24,7 @@ const [code , setcode] = useState();
       }
     };
   fetchData(); 
-} , []);
+} , [user]);
 
 
     const [questions, setQuestions] = useState([{question:'',options:[]}]);
