@@ -48,7 +48,7 @@ const [code , setcode] = useState();
         updatedQuestions[questionIndex].options[optionIndex] = event.target.value;
         setQuestions(updatedQuestions);
     };
-
+const [submited , setsubmited] = usestate(false);
 
     const handleSubmit = async () =>
      {
@@ -63,14 +63,15 @@ const [code , setcode] = useState();
               user_name : username,
               generation_code : Number(code)
             })),
+           
           };
-
+ 
           try {
              const response = await axios.post('https://brainac-blast-backend.vercel.app/quizzes', quizData);
             if(response.status === 201){
             setQuestions([{question:'',options:[]}]);
           
-           setisquestionempty(false);
+           setisquestionempty(false);setsubmited(true);
             }
           
 
@@ -84,8 +85,9 @@ const [code , setcode] = useState();
         console.log('Submitted Quiz:', questions); // Replace with API call or data processing
     };
 
-    return (
-        <div className="quiz-builder">
+    return ( 
+    !submited?   <>
+         <div className="quiz-builder">
             <h2>Build Your Quiz</h2>
      <h3>Quiz Code : {code}</h3>
             {questions.map((question, index) => (
@@ -160,6 +162,8 @@ const [code , setcode] = useState();
 }>Question or Answer is empty</p> : null}
 
         </div>
+        
+        </> : <> <Link to="/deshbord"> <button>View Quizzes</button></Link></>
     );
 };
 
