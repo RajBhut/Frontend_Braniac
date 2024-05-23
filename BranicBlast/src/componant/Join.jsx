@@ -19,7 +19,7 @@ function isvalidcode(code){
     setError('Please enter code');
     return false;
   }
-  else if(code === NaN){
+  else if(code == NaN){
     setError('Please enter valid code');
     return false;
   }

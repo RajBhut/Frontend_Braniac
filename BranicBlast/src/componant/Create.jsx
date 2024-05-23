@@ -3,9 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Create.css'
 import { useAuth0  } from '@auth0/auth0-react';
-import { useHistory } from 'react-router-dom';
+
 const Create = () => {
-  const history = useHistory();
+  
 const [code , setcode] = useState();
   const { isAuthenticated  , loginWithRedirect , user} = useAuth0();
  
