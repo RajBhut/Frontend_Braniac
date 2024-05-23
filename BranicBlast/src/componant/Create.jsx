@@ -89,7 +89,7 @@ const [submited , setsubmited] = useState(false);
     !submited?   <>
          <div className="quiz-builder">
             <h2>Build Your Quiz</h2>
-     <h3>Quiz Code : {code}</h3>
+     <h3>Quiz Code : {code}</h3> <button onClick={()=>{ window.navigator.clipboard.writeText(code).then(window.alert("coppied!!!"))}}>copy</button>
             {questions.map((question, index) => (
     <div key={index} className="question">
     <label htmlFor={`question-${index}`}>Question {index + 1}</label>

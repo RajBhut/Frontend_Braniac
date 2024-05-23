@@ -12,7 +12,7 @@ const Quize = () => {
     useEffect(()=>{
         async function fetchData(){
             try{
-        let res =    await  axios.get(`https://brainac-blast-backend.vercel.app/api/${id}`)
+        let res =    await  axios.get(`https://brainac-blast-backend.vercel.app/api/${ans}`)
 setQuestions(res.data);
 setQuestion(res.data[0]);
 setvalidcode(true);

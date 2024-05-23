@@ -38,7 +38,7 @@ return true;
             id="code"
             placeholder="Enter code"
           />
-          <Link to={`/quize/${code}`}>
+          <Link to={`/quize/${ans}`}>
             <button className="bt">Join</button>
           </Link>
      
