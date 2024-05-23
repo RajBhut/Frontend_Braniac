@@ -17,7 +17,7 @@ export default function DashBord() {
   Create
 </button> </Link> : null}
 <Link style={{color:'white' , textDecoration:'none'}} to={'/join'}><button className='bt'>
- Join
+join
 </button> </Link>
 
 
