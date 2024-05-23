@@ -12,6 +12,7 @@ const [encode , setencode] = useState();
   
 useEffect(() => {
 let ans = (code ^ process.env.DATA_KEY)+process.env.DATA_KEY_SUB;
+console.log((3 ^ process.env.DATA_KEY)+process.env.DATA_KEY_SUB );
 setencode(ans);
 }, [code]);
 function isvalidcode(code){
