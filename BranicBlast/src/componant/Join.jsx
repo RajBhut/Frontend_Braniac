@@ -14,7 +14,7 @@ const [encode , setencode] = useState();
 useEffect(() => {
 
 console.log((3 ^ process.env.DATA_KEY)+process.env.DATA_KEY_SUB );
-setans((3 ^ 2024)+9999);
+setans(code * 2024);
 }, [code]);
 function isvalidcode(code){
   if(code === ''){
