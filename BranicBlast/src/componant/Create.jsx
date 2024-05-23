@@ -2,12 +2,25 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Create.css'
+import { useAuth0  } from '@auth0/auth0-react';
+
 const Create = () => {
-
-
+const [code , setcode] = useState();
+  const { isAuthenticated  , loginWithRedirect , user} = useAuth0();
 
 useEffect(() => { 
-  setisquestionempty(false);
+  const fetchData = async () => {
+    try {
+        const response = await axios.get('https://brainac-blast-backend.vercel.app/quizzes');
+       return response.data;
+    } catch (error) {
+        if(error.response.status === 401){  
+            loginWithRedirect();
+        }
+      }
+    };
+setcode(fetchData());
+  
 } , []);
 
 
@@ -32,11 +45,6 @@ useEffect(() => {
         setQuestions(updatedQuestions);
     };
 
-    // const handleAddOption = (questionIndex) => {
-    //     const updatedQuestions = [...questions];
-    //     updatedQuestions[questionIndex].options.push('');
-    //     setQuestions(updatedQuestions);
-    // };
 
     const handleSubmit = async () =>
      {
@@ -48,8 +56,8 @@ useEffect(() => {
               opt3: question.options[2] || '',
               opt4: question.options[3] || '',
               ans: question.options[4] || '',
-              owner_id : 1 ,
-              generation_code : '1' // Add answer field
+              user_name : user.name,
+              generation_code : code 
             })),
           };
 
@@ -75,7 +83,7 @@ useEffect(() => {
     return (
         <div className="quiz-builder">
             <h2>Build Your Quiz</h2>
-     
+     <h3>Quiz Code : {code}</h3>
             {questions.map((question, index) => (
     <div key={index} className="question">
     <label htmlFor={`question-${index}`}>Question {index + 1}</label>
@@ -140,7 +148,7 @@ useEffect(() => {
 ))}
 
             <button onClick={handleAddQuestion}>Add Question</button>
-            <button onClick={handleSubmit}>Submit Quiz</button>
+            <button className = "subbt"onClick={handleSubmit}>Submit Quiz</button>
             
 <Link to="/deshbord"> <button>View Quizzes</button></Link>
 {isquestionempty ? <p style={  

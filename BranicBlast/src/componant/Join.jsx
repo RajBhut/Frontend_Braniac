@@ -2,34 +2,29 @@ import axios, { Axios } from 'axios';
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import dotenv from 'dotenv';
+import {useHistory , useEffect} from 'react-router-dom';
 export default function Join() {
-  const [code, setCode] = useState("");
-  const [data, setData] = useState([]);
+  dotenv.config();
+  const [code, setCode] = useState();
+const [encode , setencode] = useState(); 
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); // Added for loading indicator
-const [isfinish , setisfinish] = useState(false)
-  const fetchData = async () => {
-    setIsLoading(true); // Set loading indicator before request
-    try {
-
-      const response = await axios.get(`https://brainac-blast-backend.vercel.app/api/${code}`, { code }); // Send data in request body
-    
-      if (response.status !== 200) {
-        throw new Error('Join failed');
-      }
-
-      setData(response.data);
-     
-      let code = async()=>await axios.get
-      setError(null);
-      setisfinish(true)
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setIsLoading(false); 
-    }
-  };
+  
+useEffect(() => {
+let ans = (code ^ process.env.DATA_KEY)+process.env.DATA_KEY_SUB;
+setencode(ans);
+}, [code]);
+function isvalidcode(code){
+  if(code === ''){
+    setError('Please enter code');
+    return false;
+  }
+  else if(code === NaN){
+    setError('Please enter valid code');
+    return false;
+  }
+}
+   
 
   return (
     <>
@@ -40,18 +35,20 @@ const [isfinish , setisfinish] = useState(false)
           <input
             type="text"
             value={code}
-            onChange={(e) => setCode(e.target.value)}
+            onChange={(e) => {setCode(e.target.value);
+             
+            }}
             id="code"
             placeholder="Enter code"
           />
-      <Link to={'/create'}>
-            <button onClick={fetchData} className="Join" disabled={isLoading}>
-            {isLoading ? 'Joining...' : 'Join Quiz'}
-          </button></Link>
+          <Link to={`/quize/${encode}`}>
+            <button className="bt">Join</button>
+          </Link>
+     
         </div>
         {error && <p className="error">{error}</p>}
         {/* Display success/error messages or data here */}
-      </div> {isfinish}&& <h1>{data} byy</h1>
+      </div> 
     </>
   );
 }

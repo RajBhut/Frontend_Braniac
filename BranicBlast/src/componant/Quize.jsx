@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Quiz.css'
-
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const Quize = ({id}) => {
+const Quize = () => {
+    const {id} = useParams();
+    const [validcode , setvalidcode] = useState(false);
     const [questions, setQuestions] = useState([{question:'',opt1:'',opt2:'',opt3:'',opt4:'',ans:''}]); 
     useEffect(()=>{
         async function fetchData(){
@@ -12,6 +14,7 @@ const Quize = ({id}) => {
         let res =    await  axios.get(`https://brainac-blast-backend.vercel.app/api/${id}`)
 setQuestions(res.data);
 setQuestion(res.data[0]);
+setvalidcode(true);
             }
             catch(error){
                 console.error("Error fetching data:",error);
@@ -77,7 +80,7 @@ setQuestion(res.data[0]);
     }
 
   return (<>
-    <div className='container'>
+    { validcode ?<div className='container'>
            <Link to={"/deshbord"}> <button>Go To Deshbord</button> </Link>
         <h1 >
 
@@ -99,7 +102,7 @@ setQuestion(res.data[0]);
         <button onClick={reset}>Reset</button> <Link to={"/deshbord"}> <button>Go To Deshbord</button> </Link>
        </>:<></>}
        
-        </div>
+        </div> : <h1>Invalid Code</h1>}
         </>
   )
 }

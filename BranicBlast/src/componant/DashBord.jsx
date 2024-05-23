@@ -13,11 +13,13 @@ export default function DashBord() {
     <center>{isAuthenticated ? <h2>Welcome {user.name}</h2> : <h2>Welcome Guest</h2>}
     </center>
     <div className="btn">
-
-<Link style={{color:'white' , textDecoration:'none'}} to={'/create'}><button className='bt'>
- Create
+{ isAuthenticated ? <Link style={{color:'white' , textDecoration:'none'}} to={'/create'}><button className='bt'>
+  Create
+</button> </Link> : null}
+<Link style={{color:'white' , textDecoration:'none'}} to={'/join'}><button className='bt'>
+ Join
 </button> </Link>
-<Link style={{color:'white' , textDecoration: "none"}} to={'/quize'}><button classname ='bt'> Join</button></Link>
+
 
     
 </div>

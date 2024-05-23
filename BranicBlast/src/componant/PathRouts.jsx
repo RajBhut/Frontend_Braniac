@@ -5,6 +5,7 @@ import Join from './Join';
 import Create from './Create';
 import DashBord from './DashBord';
 import Home from './Home';
+import { useParams } from 'react-router-dom';
 import Quize from './Quize';
 export default function PathRouts() {
     return (
@@ -14,7 +15,7 @@ export default function PathRouts() {
              <Route path="/create" element={<Create/>} />
              <Route path="/join" element={<Join/>} />
              <Route path='/login' element={<Login/>} />
-             <Route path='/quize' element={<Quize id={1}/>} />
+             <Route path='/quize/:id' element={<Quize />} />
              <Route path='/deshbord' element={<DashBord/>} />
             </Routes>
         </Router>
