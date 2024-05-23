@@ -3,7 +3,7 @@ import axios, { Axios } from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import dotenv from 'dotenv';
-import {useHistory , useEffect} from 'react-router-dom';
+import { useEffect } from 'react';
 export default function Join() {
   dotenv.config();
   const [code, setCode] = useState();
