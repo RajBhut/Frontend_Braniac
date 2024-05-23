@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Create.css'
@@ -48,7 +48,7 @@ const [code , setcode] = useState();
         updatedQuestions[questionIndex].options[optionIndex] = event.target.value;
         setQuestions(updatedQuestions);
     };
-const [submited , setsubmited] = usestate(false);
+const [submited , setsubmited] = useState(false);
 
     const handleSubmit = async () =>
      {
