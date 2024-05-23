@@ -3,12 +3,15 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Create.css'
 import { useAuth0  } from '@auth0/auth0-react';
-
+import { useHistory } from 'react-router-dom';
 const Create = () => {
+  const history = useHistory();
 const [code , setcode] = useState();
   const { isAuthenticated  , loginWithRedirect , user} = useAuth0();
-
+ 
+ const [username , setusername] = useState();
 useEffect(() => { 
+  setusername(user.name);
   const fetchData = async () => {
     try {
         const response = await axios.get('https://brainac-blast-backend.vercel.app/quizzes');
@@ -56,7 +59,7 @@ setcode(fetchData());
               opt3: question.options[2] || '',
               opt4: question.options[3] || '',
               ans: question.options[4] || '',
-              user_name : user.name,
+              user_name : username,
               generation_code : code 
             })),
           };
