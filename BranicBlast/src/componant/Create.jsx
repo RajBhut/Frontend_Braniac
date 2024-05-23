@@ -16,7 +16,7 @@ const [code , setcode] = useState();
   const fetchData = async () => {
     try {
         const response = await axios.get('https://brainac-blast-backend.vercel.app/quizzes');
-        setcode(response.data); 
+        setcode(response.data[0]); 
     } catch (error) {
         if(error.response.status === 401){  
             loginWithRedirect();
