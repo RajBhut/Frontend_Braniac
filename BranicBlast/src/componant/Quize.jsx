@@ -6,13 +6,17 @@ import { Link } from 'react-router-dom';
 
 const Quize = () => {
     const {id} = useParams();
-    let ans = (id ^ 2024) - 9999;
+
+
+
+
+    
     const [validcode , setvalidcode] = useState(false);
     const [questions, setQuestions] = useState([{question:'',opt1:'',opt2:'',opt3:'',opt4:'',ans:''}]); 
     useEffect(()=>{
         async function fetchData(){
             try{
-        let res =    await  axios.get(`https://brainac-blast-backend.vercel.app/api/${ans}`)
+        let res =    await  axios.get(`https://brainac-blast-backend.vercel.app/api/${((id / 2024)  )}`)
 setQuestions(res.data);
 setQuestion(res.data[0]);
 setvalidcode(true);
