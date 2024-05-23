@@ -17,9 +17,9 @@ const [code , setcode] = useState();
 }
   const fetchData = async () => {
     try {
-        const response = await axios.get('https://brainac-blast-backend.vercel.app/quizzes');
+        const response = await axios.get('https://brainac-blast-backend.vercel.app/quizzes');console.log(response.data);
         setcode(response.data); 
-        console.log(code);
+        
     } catch (error) {
         console.error('Error fetching data: ', error);
       }
