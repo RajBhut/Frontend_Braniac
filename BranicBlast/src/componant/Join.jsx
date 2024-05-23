@@ -9,12 +9,12 @@ export default function Join() {
   const [code, setCode] = useState();
 const [encode , setencode] = useState(); 
   const [error, setError] = useState(null);
-  const [ans , setans] = useState();
+
   
 useEffect(() => {
 
-console.log((3 ^ process.env.DATA_KEY)+process.env.DATA_KEY_SUB );
-setans(code * 2024);
+
+
 }, [code]);
 function isvalidcode(code){
   if(code === ''){
@@ -40,7 +40,7 @@ return true;
             id="code"
             placeholder="Enter code"
           />
-          <Link to={`/quize/${ans}`}>
+          <Link to={`/quize/${ans * 2024}`}>
             <button className="bt">Join</button>
           </Link>
      
