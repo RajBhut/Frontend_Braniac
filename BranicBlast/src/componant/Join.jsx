@@ -9,11 +9,12 @@ export default function Join() {
   const [code, setCode] = useState();
 const [encode , setencode] = useState(); 
   const [error, setError] = useState(null);
+  const [ans , setans] = useState();
   
 useEffect(() => {
-let ans = (code ^ process.env.DATA_KEY)+process.env.DATA_KEY_SUB;
+
 console.log((3 ^ process.env.DATA_KEY)+process.env.DATA_KEY_SUB );
-setencode(ans);
+setans((3 ^ 2024)+9999);
 }, [code]);
 function isvalidcode(code){
   if(code === ''){

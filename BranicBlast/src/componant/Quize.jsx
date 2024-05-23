@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Quize = () => {
     const {id} = useParams();
-    let ans = (id ^ process.env.DATA_KEY) - process.env.DATA_KEY_SUB;
+    let ans = (id ^ 2024) - 9999;
     const [validcode , setvalidcode] = useState(false);
     const [questions, setQuestions] = useState([{question:'',opt1:'',opt2:'',opt3:'',opt4:'',ans:''}]); 
     useEffect(()=>{
