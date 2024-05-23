@@ -7,23 +7,23 @@ import { useAuth0  } from '@auth0/auth0-react';
 const Create = () => {
   
 const [code , setcode] = useState();
+
   const { isAuthenticated  , loginWithRedirect , user} = useAuth0();
  
  const [username , setusername] = useState();
-useEffect(() => { 
+ useEffect(() => { 
   setusername(user.name);
   const fetchData = async () => {
     try {
         const response = await axios.get('https://brainac-blast-backend.vercel.app/quizzes');
-       return response.data;
+        setcode(response.data); 
     } catch (error) {
         if(error.response.status === 401){  
             loginWithRedirect();
         }
       }
     };
-setcode(fetchData());
-  
+  fetchData(); 
 } , []);
 
 
