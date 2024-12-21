@@ -265,7 +265,7 @@ const Quiz = () => {
                       whileTap={{ scale: 0.98 }}
                       onClick={(e) => {
                         checkAns(e, i + 1);
-                        console.log(e, i + 1);
+                        console.log(e, i + 1, question.ans);
                       }}
                       className="p-4 text-left border-2 rounded-lg hover:bg-gray-50 transition-colors"
                     >
