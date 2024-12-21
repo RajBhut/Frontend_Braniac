@@ -1,27 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import "./Login.css";
-// import { Link, useNavigate } from "react-router-dom";
-// import { useAuth0 } from "@auth0/auth0-react";
-// const Login = () => {
-//   const { loginWithRedirect, isAuthenticated, user } = useAuth0();
-//   const navigate = useNavigate();
-//   useEffect(() => {
-//     if (isAuthenticated) {
-//       navigate("/deshbord");
-//     }
-//   }, [isAuthenticated]);
-
-//   return (
-//     <>
-//       {!isAuthenticated && (
-//         <button onClick={() => loginWithRedirect()}>Log In</button>
-//       )}
-//     </>
-//   );
-// };
-
-// export default Login;
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
