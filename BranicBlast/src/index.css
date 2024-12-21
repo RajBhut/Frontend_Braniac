@@ -1,26 +1,3 @@
-#root
-{
-    
-  
-    display: flex;
-    flex-direction: column;
-   
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-body{
-    background: rgb(187, 209, 235);
-    background-image: url('bg.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    
-
-}
-@media screen and (max-width: 600px) {
-    body {
-        background-image: url('bg-small.svg');
-    }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
