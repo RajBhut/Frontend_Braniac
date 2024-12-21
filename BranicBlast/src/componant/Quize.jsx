@@ -147,17 +147,15 @@ const Quiz = () => {
   const checkAns = (e, ans) => {
     if (!lock) {
       if (question.ans === ans) {
-        // Fixed: Using classList.add() with individual classes
         e.target.classList.add("bg-green-100");
         e.target.classList.add("border-green-500");
         setLock(true);
         setScore((prev) => prev + 1);
       } else {
-        // Fixed: Using classList.add() with individual classes
         e.target.classList.add("bg-red-100");
         e.target.classList.add("border-red-500");
         setLock(true);
-        // Fixed: Adding classes to correct answer
+
         optionRefs[question.ans - 1].current.classList.add("bg-green-100");
         optionRefs[question.ans - 1].current.classList.add("border-green-500");
       }
@@ -173,7 +171,7 @@ const Quiz = () => {
       setIndex((prev) => prev + 1);
       setQuestion(questions[index + 1]);
       setLock(false);
-      // Fixed: Removing classes individually
+
       optionRefs.forEach((ref) => {
         ref.current.classList.remove("bg-green-100");
         ref.current.classList.remove("border-green-500");
@@ -265,7 +263,10 @@ const Quiz = () => {
                       ref={optionRefs[i]}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      onClick={(e) => checkAns(e, i + 1)}
+                      onClick={(e) => {
+                        checkAns(e, i + 1);
+                        console.log(e, i + 1);
+                      }}
                       className="p-4 text-left border-2 rounded-lg hover:bg-gray-50 transition-colors"
                     >
                       {question[opt]}
