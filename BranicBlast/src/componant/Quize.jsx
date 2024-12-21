@@ -147,7 +147,7 @@ const Quiz = () => {
   const checkAns = (e, ans) => {
     if (!lock) {
       console.log(question.ans, ans);
-      if (question.ans === ans) {
+      if (question.ans == ans) {
         e.target.classList.add("bg-green-100");
         e.target.classList.add("border-green-500");
         setLock(true);
