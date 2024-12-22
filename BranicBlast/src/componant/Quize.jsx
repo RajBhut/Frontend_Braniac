@@ -218,17 +218,6 @@ const Quiz = () => {
                     <RefreshCcw size={20} />
                     Try Again
                   </motion.button>
-
-                  <Link to="/deshbord">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center justify-center gap-2 bg-gray-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors"
-                    >
-                      <Home size={20} />
-                      Dashboard
-                    </motion.button>
-                  </Link>
                 </div>
               </motion.div>
             )}
